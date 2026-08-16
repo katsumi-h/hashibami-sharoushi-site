@@ -290,3 +290,102 @@ table { border-collapse: collapse; width: 100%; }
   .service-grid { grid-template-columns: 1fr; }
   .tabs { flex-wrap: wrap; }
 }
+
+/* Page-title with photo background (corporate / personal / staff / contact) */
+.page-title-photo {
+  position: relative;
+  padding: 64px 0 48px;
+  overflow: hidden;
+  color: #fff;
+  min-height: 240px;
+  display: flex;
+  align-items: flex-end;
+}
+.page-title-photo .bg-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.page-title-photo .bg-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,43,75,0.5) 0%, rgba(16,24,48,0.85) 100%); z-index: 1; }
+.page-title-photo .section-inner { position: relative; z-index: 2; }
+.page-title-photo .section-eyebrow { color: #cfe3f9; }
+.page-title-photo .page-title-h1 { color: #fff; }
+
+/* Worry list（このようなお悩みの方は） */
+.worry-section { padding: 90px 0 30px; }
+.worry-lead { color: var(--text-sub); margin-bottom: 30px; max-width: 640px; }
+.worry-list { display: grid; gap: 12px; }
+.worry-list li {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 18px 22px; background: var(--bg-blue); border-radius: 12px;
+  font-size: 0.95rem;
+}
+.worry-list li::before {
+  content: "?";
+  flex-shrink: 0;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--blue); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 0.85rem;
+}
+.intro-text { padding: 50px 0 20px; }
+.intro-text p { color: var(--text-sub); max-width: 720px; margin-bottom: 20px; }
+.intro-text p:last-child { margin-bottom: 0; }
+
+/* 重点分野 */
+.focus-areas { padding: 70px 0 100px; }
+.focus-category { margin-bottom: 36px; }
+.focus-category:last-child { margin-bottom: 0; }
+.focus-category h3 {
+  font-size: 1.1rem; color: var(--navy); margin-bottom: 14px;
+  padding-left: 14px; border-left: 4px solid var(--blue);
+}
+.focus-category ul { display: flex; flex-wrap: wrap; gap: 10px; }
+.focus-category li {
+  background: var(--bg-blue); border-radius: 8px; padding: 10px 18px;
+  font-size: 0.88rem; color: var(--text-sub);
+}
+
+/* Pricing plan cards */
+.plan-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
+.plan-card { border-radius: 20px; padding: 34px 26px; background: #fff; border: 2px solid var(--bg-blue); }
+.plan-card.is-featured { border-color: var(--blue); box-shadow: 0 16px 32px rgba(47,127,209,0.15); }
+.plan-name { font-weight: 700; font-size: 1.05rem; margin-bottom: 12px; }
+.plan-price { font-family: "Lato", sans-serif; font-weight: 900; font-size: 1.7rem; color: var(--blue); margin-bottom: 16px; }
+.plan-price span { font-size: 0.8rem; font-weight: 500; color: var(--text-sub); }
+.plan-desc { color: var(--text-sub); font-size: 0.85rem; }
+.plan-desc li { padding: 6px 0; border-bottom: 1px solid var(--bg-blue); }
+.plan-desc li:last-child { border-bottom: none; }
+.fee-note {
+  background: var(--bg-blue); border-radius: 12px; padding: 20px 24px;
+  font-size: 0.85rem; color: var(--text-sub); margin-bottom: 50px;
+}
+.fee-table-section { margin-bottom: 60px; }
+.fee-table-section h3 { font-size: 1.1rem; margin-bottom: 16px; }
+
+/* Contact topics + form */
+.contact-topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 30px 0 70px; }
+.contact-topic-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 24px; border: 2px solid var(--bg-blue); border-radius: 14px;
+  font-weight: 700; color: var(--navy);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.contact-topic-btn:hover { border-color: var(--blue); background: var(--bg-blue); }
+.contact-topic-btn .arrow { color: var(--blue); font-size: 1.2rem; }
+
+.contact-form-section { padding: 20px 0 100px; background: var(--bg-blue); }
+.contact-form-section .section-title { text-align: center; }
+.contact-form { max-width: 680px; margin: 0 auto; display: grid; gap: 22px; }
+.form-row label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; }
+.form-row .required { color: #e0522f; font-size: 0.72rem; margin-left: 6px; }
+.form-row input, .form-row select, .form-row textarea {
+  width: 100%; padding: 12px 16px; border: 2px solid #d8e4f2; border-radius: 10px;
+  font-family: inherit; font-size: 0.92rem; background: #fff;
+}
+.form-row textarea { min-height: 140px; resize: vertical; }
+.form-consent { display: flex; align-items: center; gap: 10px; font-size: 0.86rem; color: var(--text-sub); }
+.form-submit { text-align: center; margin-top: 6px; }
+.form-note { font-size: 0.78rem; color: var(--text-sub); text-align: center; margin-top: 16px; }
+
+@media (max-width: 900px) {
+  .focus-category ul { gap: 8px; }
+  .plan-cards { grid-template-columns: 1fr; }
+  .contact-topics { grid-template-columns: 1fr; }
+}
