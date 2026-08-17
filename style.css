@@ -122,7 +122,7 @@ table { border-collapse: collapse; width: 100%; }
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(100deg, rgba(16,24,48,0.92) 0%, rgba(20,33,64,0.75) 40%, rgba(27,43,75,0.35) 75%);
+  background: linear-gradient(100deg, rgba(16,24,48,0.8) 0%, rgba(20,33,64,0.62) 40%, rgba(27,43,75,0.22) 75%);
   z-index: 1;
 }
 .hero-inner {
@@ -309,7 +309,7 @@ table { border-collapse: collapse; width: 100%; }
   align-items: flex-end;
 }
 .page-title-photo .bg-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 56%; z-index: 0; }
-.page-title-photo .bg-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,43,75,0.28) 0%, rgba(16,24,48,0.62) 100%); z-index: 1; }
+.page-title-photo .bg-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,43,75,0.18) 0%, rgba(16,24,48,0.48) 100%); z-index: 1; }
 .page-title-photo .section-inner { position: relative; z-index: 2; }
 .page-title-photo .section-eyebrow { color: #cfe3f9; }
 .page-title-photo .page-title-h1 { color: #fff; }
