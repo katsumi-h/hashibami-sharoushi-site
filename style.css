@@ -139,7 +139,7 @@ table { border-collapse: collapse; width: 100%; }
   letter-spacing: 0.12em;
   line-height: 1.6;
   flex-shrink: 0;
-  height: 380px;
+  height: 460px;
   display: flex;
   align-items: flex-start;
   text-shadow: 0 2px 16px rgba(0,0,0,0.35);
@@ -350,15 +350,20 @@ table { border-collapse: collapse; width: 100%; }
 }
 
 /* Pricing plan cards */
-.plan-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
-.plan-card { border-radius: 20px; padding: 34px 26px; background: #fff; border: 2px solid var(--bg-blue); }
-.plan-card.is-featured { border-color: var(--blue); box-shadow: 0 16px 32px rgba(47,127,209,0.15); }
-.plan-name { font-weight: 700; font-size: 1.05rem; margin-bottom: 12px; }
-.plan-price { font-family: "Lato", sans-serif; font-weight: 900; font-size: 1.7rem; color: var(--blue); margin-bottom: 16px; }
-.plan-price span { font-size: 0.8rem; font-weight: 500; color: var(--text-sub); }
-.plan-desc { color: var(--text-sub); font-size: 0.85rem; }
-.plan-desc li { padding: 6px 0; border-bottom: 1px solid var(--bg-blue); }
-.plan-desc li:last-child { border-bottom: none; }
+.plan-table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+.plan-table th, .plan-table td {
+  border: 1px solid #d8e4f2; padding: 20px 24px; vertical-align: middle; text-align: left;
+}
+.plan-table th {
+  width: 180px; background: var(--bg-blue); color: var(--navy);
+  font-weight: 700; font-size: 0.95rem;
+}
+.plan-table td ul { display: block; }
+.plan-table td li { color: var(--text-sub); font-size: 0.9rem; padding: 3px 0; }
+.plan-table .plan-table-price {
+  width: 160px; text-align: right; white-space: nowrap;
+  font-weight: 700; font-size: 1.05rem; color: var(--blue-dark);
+}
 .fee-note {
   background: var(--bg-blue); border-radius: 12px; padding: 20px 24px;
   font-size: 0.85rem; color: var(--text-sub); margin-bottom: 50px;
@@ -393,6 +398,10 @@ table { border-collapse: collapse; width: 100%; }
 
 @media (max-width: 900px) {
   .focus-category ul { gap: 8px; }
-  .plan-cards { grid-template-columns: 1fr; }
   .contact-topics { grid-template-columns: 1fr; }
+  .plan-table, .plan-table tbody, .plan-table tr, .plan-table th, .plan-table td {
+    display: block; width: auto;
+  }
+  .plan-table tr { margin-bottom: 4px; }
+  .plan-table .plan-table-price { text-align: left; border-top: none; }
 }
