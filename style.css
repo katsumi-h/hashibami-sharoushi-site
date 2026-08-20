@@ -184,19 +184,24 @@ table { border-collapse: collapse; width: 100%; }
 .service-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
 }
-.service-card {
-  background: var(--bg-blue);
-  border-radius: 18px;
-  padding: 30px 24px;
-}
-.service-icon {
-  width: 52px; height: 52px;
-  color: var(--blue);
+.service-card { display: block; }
+.service-photo {
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
   margin-bottom: 16px;
+  box-shadow: 0 10px 26px rgba(27,43,75,0.14);
 }
-.service-icon svg { width: 100%; height: 100%; }
-.service-card h3 { font-size: 1.02rem; margin-bottom: 10px; }
-.service-card p { color: var(--text-sub); font-size: 0.88rem; }
+.service-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.35s ease;
+}
+.service-card:hover .service-photo img { transform: scale(1.06); }
+.service-label {
+  display: flex; align-items: center; gap: 6px;
+  font-weight: 700; font-size: 0.98rem; color: var(--navy);
+}
+.arrow-icon { color: var(--blue); font-size: 1.3rem; font-weight: 900; line-height: 1; }
 .service-more { text-align: center; margin-top: 30px; }
 
 /* Profile */
@@ -242,11 +247,26 @@ table { border-collapse: collapse; width: 100%; }
 
 /* Points */
 .points { padding: 100px 0; background: #fff; }
-.points-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.point-card { border: 2px solid var(--bg-blue); border-radius: 18px; padding: 30px 24px; }
-.point-num { font-family: "Lato", sans-serif; font-size: 1.6rem; font-weight: 900; color: var(--blue); margin-bottom: 10px; }
-.point-card h3 { font-size: 1.02rem; margin-bottom: 12px; }
-.point-card p { color: var(--text-sub); font-size: 0.88rem; }
+.points-list { display: flex; flex-direction: column; gap: 70px; }
+.point-row { display: flex; align-items: center; gap: 50px; }
+.point-row:nth-child(even) { flex-direction: row-reverse; }
+.point-text { flex: 1; }
+.point-photo {
+  flex: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: 0 16px 40px rgba(27,43,75,0.16);
+}
+.point-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.point-eyebrow {
+  font-family: "Lato", sans-serif; font-weight: 900; color: var(--blue);
+  font-size: 0.95rem; letter-spacing: 0.06em; margin-bottom: 8px;
+}
+.point-num { font-size: 1.4rem; margin-left: 4px; }
+.point-text h3 { font-size: 1.3rem; margin-bottom: 14px; }
+.point-text p { color: var(--text-sub); font-size: 0.92rem; line-height: 1.9; }
+.point-cta { display: inline-flex; margin-top: 20px; }
 
 /* Office info */
 .office-info { padding: 100px 0; background: var(--bg-blue); }
@@ -280,7 +300,8 @@ table { border-collapse: collapse; width: 100%; }
   .profile-inner { flex-direction: column; text-align: center; }
   .office-info-inner { grid-template-columns: 1fr; }
   .office-visual { max-width: 260px; margin: 0 auto; }
-  .points-list { grid-template-columns: 1fr; }
+  .points-list { gap: 40px; }
+  .point-row, .point-row:nth-child(even) { flex-direction: column; align-items: stretch; gap: 20px; }
   .access-inner { flex-direction: column; }
   .access-map { width: 100%; }
 }
