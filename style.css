@@ -140,7 +140,7 @@ table { border-collapse: collapse; width: 100%; }
 .hero-vertical {
   position: absolute;
   top: 230px;
-  left: max(24px, calc(50% - 466px));
+  left: max(24px, calc(50% - 422px));
   writing-mode: vertical-rl;
   text-orientation: upright;
   font-size: 1.85rem;
@@ -169,7 +169,7 @@ table { border-collapse: collapse; width: 100%; }
 .hero-concept-inner {
   position: relative; z-index: 2;
   max-width: 1080px; margin: 0 auto;
-  padding: 34px 24px 40px 284px;
+  padding: 6px 24px 40px 284px;
 }
 .hero-concept-inner .section-eyebrow { font-size: 1.05rem; margin-bottom: 18px; }
 .concept-text { color: var(--text-sub); margin-bottom: 26px; max-width: 600px; }
