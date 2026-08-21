@@ -137,6 +137,8 @@ h1, h2, h3,
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
 }
 .site-header-compact .nav { display: flex; gap: 20px; }
+/* スマホのメニュー内にだけ出す項目（PCではCTAボタンがあるので隠す） */
+.nav-sp-only { display: none; }
 .site-header-compact .nav a { font-weight: 500; font-size: 0.85rem; white-space: nowrap; }
 .site-header-compact .nav a:hover, .site-header-compact .nav a.is-current { color: var(--blue-dark); }
 .site-header-compact .btn { flex-shrink: 0; }
@@ -447,10 +449,15 @@ h1, h2, h3,
 @media (max-width: 900px) {
   .hero-vertical { display: none; }
   .hero-photo-zone { display: flex; align-items: center; padding: 0 24px; height: 280px; }
+  /* 明るい写真の上に白文字だと沈むため、PC版の縦書きと同じ
+     「濃紺の文字＋白いフチ」に統一して視認性を上げる */
   .hero-title-sp {
     display: block; position: relative; z-index: 1;
-    color: #fff; font-size: 1.5rem; font-weight: 900;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.6), 0 1px 5px rgba(0,0,0,0.65);
+    color: var(--navy); font-size: 1.5rem; font-weight: 900;
+    text-shadow:
+      0 0 18px rgba(255,255,255,0.95),
+      0 0 10px rgba(255,255,255,0.95),
+      0 0 4px rgba(255,255,255,0.9);
   }
   .hero-wave { top: 200px; }
   .hero-concept-inner { padding-left: 24px; }
@@ -459,6 +466,8 @@ h1, h2, h3,
   .office-info-inner { grid-template-columns: 1fr; }
   .office-visual { max-width: 260px; margin: 0 auto; }
   .points-list { gap: 40px; }
+  /* 「専門用語を使わないわかりやすい説明」が1行に収まるサイズにする */
+  .point-text h3 { font-size: 1.1rem; }
   .point-row, .point-row:nth-child(even) { flex-direction: column; align-items: stretch; gap: 20px; }
   .access-inner { flex-direction: column; }
   .access-map { width: 100%; }
@@ -469,15 +478,18 @@ h1, h2, h3,
   /* .site-header-compact .nav（詳細度0,2,0）が上の .nav（0,1,0）に勝つため、
      同じ詳細度で明示的に打ち消す。これが無いとスマホでナビが出たままになる */
   .site-header-compact .nav { display: none; }
-  /* ロゴ＋CTAボタンだけの1行に収める（ボタンが画面外に出ないように） */
+  /* スマホの追従ヘッダーは「ロゴ＋ハンバーガー」だけにする。
+     お問い合わせはメニューの中に入れるので、CTAボタンは非表示にする */
+  .site-header-compact .btn { display: none; }
   .site-header-compact .header-inner { padding: 10px 16px; gap: 12px; }
   .site-header-compact .logo { flex-shrink: 1; min-width: 0; }
   .site-header-compact .logo-mark { width: 32px; height: 32px; font-size: 0.9rem; }
   .site-header-compact .logo-text {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
-  .site-header-compact .btn { padding: 9px 14px; font-size: 0.76rem; }
+  /* メニューを開いたときだけ現れる「お問い合わせ」（PCではボタンがあるので不要） */
+  .nav-sp-only { display: block; }
 
   .nav.is-open {
     display: flex; flex-direction: column;

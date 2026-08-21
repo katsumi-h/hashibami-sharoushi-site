@@ -1,14 +1,19 @@
 // ハンバーガーメニューの開閉
-const hamburger = document.getElementById('hamburger');
-const nav = document.getElementById('nav');
+// 通常ヘッダーと追従ヘッダーで2組あるので、まとめて同じ処理を割り当てる
+function setupHamburger(buttonId, navId) {
+  const button = document.getElementById(buttonId);
+  const menu = document.getElementById(navId);
+  if (!button || !menu) return;
 
-if (hamburger && nav) {
-  hamburger.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('is-open');
-    hamburger.classList.toggle('is-open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
+  button.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('is-open');
+    button.classList.toggle('is-open', isOpen);
+    button.setAttribute('aria-expanded', isOpen);
   });
 }
+
+setupHamburger('hamburger', 'nav');
+setupHamburger('hamburgerCompact', 'navCompact');
 
 // コンパクトヘッダー：トップの写真セクションを過ぎたら表示する
 const stickyHeader = document.getElementById('stickyHeader');
