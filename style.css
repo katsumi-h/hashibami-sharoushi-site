@@ -127,7 +127,7 @@ table { border-collapse: collapse; width: 100%; }
   position: relative;
   background: var(--navy);
   color: #fff;
-  padding: 70px 24px 130px;
+  padding: 70px 24px 90px;
   overflow: hidden;
   min-height: 560px;
   display: flex;
@@ -138,11 +138,6 @@ table { border-collapse: collapse; width: 100%; }
   width: 100%; height: 100%;
   object-fit: cover;
   z-index: 0;
-}
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(100deg, rgba(16,24,48,0.8) 0%, rgba(20,33,64,0.62) 40%, rgba(27,43,75,0.22) 75%);
-  z-index: 1;
 }
 .hero-inner {
   max-width: 1080px; margin: 0 auto;
@@ -161,19 +156,20 @@ table { border-collapse: collapse; width: 100%; }
   height: 460px;
   display: flex;
   align-items: flex-start;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.35);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.6), 0 1px 6px rgba(0,0,0,0.65);
 }
 .hero-title-sp { display: none; }
 .hero-content { flex: 1; }
-.hero-lead { font-size: 1rem; opacity: 0.95; margin-bottom: 32px; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
+.hero-lead { font-size: 1rem; opacity: 0.95; margin-bottom: 32px; text-shadow: 0 2px 12px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.6); }
+.hero-content .hero-link { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.6); }
 
 .hero-wave { position: absolute; bottom: -1px; left: 0; width: 100%; height: 80px; z-index: 2; }
 .hero-wave path { fill: var(--bg-blue); }
 
 /* Concept */
-.concept { position: relative; background: var(--bg-blue); padding: 90px 0; overflow: hidden; }
+.concept { position: relative; background: var(--bg-blue); padding: 50px 0; overflow: hidden; }
 .concept-inner { position: relative; z-index: 2; max-width: 760px; }
-.concept-text { color: var(--text-sub); margin-bottom: 26px; }
+.concept-text { color: #222; margin-bottom: 26px; }
 .bubble {
   position: absolute; border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, rgba(47,127,209,0.18), rgba(95,184,168,0.08));
@@ -313,7 +309,10 @@ table { border-collapse: collapse; width: 100%; }
 @media (max-width: 900px) {
   .hero-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
   .hero-vertical { display: none; }
-  .hero-title-sp { display: block; font-size: 1.7rem; font-weight: 900; margin-bottom: 18px; }
+  .hero-title-sp {
+    display: block; font-size: 1.7rem; font-weight: 900; margin-bottom: 18px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6), 0 1px 5px rgba(0,0,0,0.65);
+  }
   .hero { min-height: 480px; }
   .service-grid { grid-template-columns: 1fr 1fr; }
   .profile-inner { flex-direction: column; text-align: center; }
