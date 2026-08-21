@@ -10,6 +10,19 @@ if (hamburger && nav) {
   });
 }
 
+// コンパクトヘッダー：トップの写真セクションを過ぎたら表示する
+const stickyHeader = document.getElementById('stickyHeader');
+const topSection = document.querySelector('.hero, .page-title-photo');
+
+if (stickyHeader && topSection) {
+  const updateStickyHeader = () => {
+    const scrolledPast = topSection.getBoundingClientRect().bottom < 0;
+    stickyHeader.classList.toggle('is-visible', scrolledPast);
+  };
+  window.addEventListener('scroll', updateStickyHeader, { passive: true });
+  updateStickyHeader();
+}
+
 // 法人／個人タブの切り替え
 const tabButtons = document.querySelectorAll('.tab-btn');
 
