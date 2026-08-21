@@ -139,7 +139,7 @@ table { border-collapse: collapse; width: 100%; }
 
 .hero-vertical {
   position: absolute;
-  top: 60px;
+  top: 230px;
   left: max(24px, calc(50% - 516px));
   writing-mode: vertical-rl;
   text-orientation: upright;
@@ -147,16 +147,17 @@ table { border-collapse: collapse; width: 100%; }
   font-weight: 900;
   letter-spacing: 0.12em;
   line-height: 1.6;
-  height: 640px;
+  height: 320px;
   color: var(--navy);
   text-shadow: 0 0 18px rgba(255,255,255,0.95), 0 0 8px rgba(255,255,255,0.95);
   z-index: 3;
 }
+/* 写真と重なる上半分だけをすりガラス状にして可読性を確保（波より下は不要） */
 .hero-vertical::before {
   content: "";
   position: absolute;
-  top: -30px; left: -24px; right: -24px;
-  height: 360px;
+  top: -26px; left: -24px; right: -24px;
+  height: 170px;
   background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.22) 60%, rgba(255,255,255,0) 100%);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -168,8 +169,9 @@ table { border-collapse: collapse; width: 100%; }
 .hero-concept-inner {
   position: relative; z-index: 2;
   max-width: 1080px; margin: 0 auto;
-  padding: 0px 24px 40px 284px;
+  padding: 34px 24px 40px 284px;
 }
+.hero-concept-inner .section-eyebrow { font-size: 1.05rem; margin-bottom: 18px; }
 .concept-text { color: var(--text-sub); margin-bottom: 26px; max-width: 600px; }
 .bubble {
   position: absolute; border-radius: 50%;
