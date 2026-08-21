@@ -140,10 +140,10 @@ table { border-collapse: collapse; width: 100%; }
 .hero-vertical {
   position: absolute;
   top: 230px;
-  left: max(24px, calc(50% - 516px));
+  left: max(24px, calc(50% - 466px));
   writing-mode: vertical-rl;
   text-orientation: upright;
-  font-size: 1.6rem;
+  font-size: 1.85rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   line-height: 1.6;
