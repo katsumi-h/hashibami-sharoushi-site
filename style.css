@@ -42,6 +42,25 @@ table { border-collapse: collapse; width: 100%; }
 .center { text-align: center; }
 .section-eyebrow.center, .section-title.center { text-align: center; }
 
+/* 日本語の改行を文節単位にする。
+   「わかりやすい説／明」のように語の途中で折り返したり、
+   「を、」だけが1行に残るのを防ぐ。
+   非対応ブラウザでは従来どおりの折り返しになるだけで、崩れない。 */
+h1, h2, h3,
+.hero-title-sp, .concept-text, .worry-lead, .worry-list li,
+.intro-text p, .point-text p, .footer-lead,
+.faq-question, .faq-answer p, .flow-body p, .news-list li {
+  word-break: auto-phrase;
+}
+
+/* スマホのときだけ改行させたい箇所に使う（見出しの折り返し位置の調整用）。
+   文節が複数ある見出しは auto-phrase だけでは狙った位置で折り返らないため、
+   読点の直後などに明示的に入れる。 */
+.br-sp { display: none; }
+@media (max-width: 720px) {
+  .br-sp { display: inline; }
+}
+
 /* Buttons */
 .btn {
   display: inline-block;
@@ -405,6 +424,13 @@ table { border-collapse: collapse; width: 100%; }
 }
 .office-table th { width: 130px; color: var(--text-sub); font-weight: 700; }
 
+/* スマホでは横幅が足りず「はしばみ社会保険労務士事務所」が2行に折り返してしまうため、
+   見出し列を細く・文字を小さくして1行に収める */
+@media (max-width: 720px) {
+  .office-table th, .office-table td { padding: 12px 8px; font-size: 0.8rem; }
+  .office-table th { width: 92px; }
+}
+
 /* Access */
 .access { padding: 100px 0; }
 .access-inner { display: flex; gap: 40px; align-items: center; }
@@ -440,6 +466,19 @@ table { border-collapse: collapse; width: 100%; }
 
 @media (max-width: 720px) {
   .nav, .header-top-row { display: none; }
+  /* .site-header-compact .nav（詳細度0,2,0）が上の .nav（0,1,0）に勝つため、
+     同じ詳細度で明示的に打ち消す。これが無いとスマホでナビが出たままになる */
+  .site-header-compact .nav { display: none; }
+  /* ロゴ＋CTAボタンだけの1行に収める（ボタンが画面外に出ないように） */
+  .site-header-compact .header-inner { padding: 10px 16px; gap: 12px; }
+  .site-header-compact .logo { flex-shrink: 1; min-width: 0; }
+  .site-header-compact .logo-mark { width: 32px; height: 32px; font-size: 0.9rem; }
+  .site-header-compact .logo-text {
+    font-size: 0.8rem;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .site-header-compact .btn { padding: 9px 14px; font-size: 0.76rem; }
+
   .nav.is-open {
     display: flex; flex-direction: column;
     position: absolute; top: 100%; left: 0; right: 0;
